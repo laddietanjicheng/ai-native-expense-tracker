@@ -1,0 +1,66 @@
+"""All detector thresholds, ranking weights and narration limits (spec §4.1-§4.3, §5)."""
+
+CHANGE_MIN_ABS_CENTS = 2_000
+CHANGE_MIN_PCT = 0.15
+
+LEAK_MIN_COUNT = 8
+LEAK_MAX_ITEM_CENTS = 1_500
+LEAK_MIN_SUM_CENTS = 5_000
+
+RECURRING_WINDOW_MONTHS = 3
+RECURRING_MIN_OCCURRENCES = 3
+RECURRING_TOLERANCE_PCT = 0.10
+RECURRING_PRICE_CHANGE_PCT = 0.05
+
+TIMING_WINDOW_MONTHS = 3
+TIMING_WEEKEND_SHARE = 0.60
+TIMING_WEEKEND_MIN_COUNT = 6
+TIMING_EARLY_MONTH_SHARE = 0.40
+TIMING_EARLY_MONTH_DAYS = 7
+
+TREND_MONTHS = 4
+TREND_MIN_NET_CENTS = 5_000
+TREND_MIN_NET_PCT = 0.20
+
+BUDGET_CLOSED_MONTHS = 3
+BUDGET_UNDER_PCT = 0.75
+ROUND_TO_CENTS = 1_000
+
+ANOMALY_OUTLIER_MULTIPLE = 3
+ANOMALY_OUTLIER_MIN_CENTS = 5_000
+ANOMALY_MEDIAN_MIN_COUNT = 5
+ANOMALY_MEDIAN_WINDOW_DAYS = 90
+
+WIN_FALL_MONTHS = 3
+WIN_BUDGET_STREAK_MIN = 2
+
+LOGGING_GAP_DAYS = 4
+LOGGING_ACTIVE_DAY_SHARE = 0.60
+LOGGING_LOOKBACK_DAYS = 90
+OTHER_SHARE_MIN = 0.15
+OTHER_MIN_CENTS = 5_000
+
+NOVELTY_FACTOR = 0.3
+NOVELTY_TOLERANCE_PCT = 0.20
+MAX_CARDS = 5
+HISTORY_MONTHS = 5  # months of raw data needed: selected month + 4 before it
+
+KIND_WEIGHTS_RUNNING = {"pace": 4, "anomaly": 4, "logging": 4, "change": 3, "leak": 3}
+KIND_WEIGHTS_CLOSED = {"change": 4, "trend": 4, "budget": 4, "win": 4, "recurring": 3, "timing": 3}
+DEFAULT_KIND_WEIGHT = 1
+
+VALID_CARD_TYPES = {
+    "pace",
+    "change",
+    "leak",
+    "recurring",
+    "timing",
+    "trend",
+    "budget",
+    "anomaly",
+    "win",
+    "logging",
+    "tip",
+}
+
+OTHER_SUBJECT_SUFFIX = " (other)"
